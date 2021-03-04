@@ -38,6 +38,11 @@
 			<artifactId>junit-jupiter</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+    		<groupId>com.google.cloud.tools</groupId>
+    		<artifactId>jib-maven-plugin</artifactId>
+    		<version>2.8.0</version>
+		</dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
@@ -64,6 +69,29 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<!-- Jib plugin documentation : https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin -->
+			<plugin>
+  				<groupId>com.google.cloud.tools</groupId>
+  				<artifactId>jib-maven-plugin</artifactId>
+  				<version>2.8.0</version>
+  				<configuration>
+  				<!-- <from> Configures the base image to build your application on top of. Typically you don’t need to provide <from> as by default it uses distroless java8 image.-->
+  					<from>
+         				<image>gcr.io/distroless/java:11</image>
+      				</from>
+      			<!-- <to > This refers to the target image that will pushed to the container registry. -->
+      			<!-- In order to push an image, we would need to add registry credentials to maven settings.xml.  -->
+    				<to>
+      				<!-- for google cloud registory 	<image>gcr.io/my-project/image-built-with-jib</image> -->
+      				<image>882637506160.dkr.ecr.us-east-1.amazonaws.com/microservice_config_server</image> 
+      				<credHelper>ecr-login</credHelper> <!-- using docker-credential-ecr-login o configure credential -->
+      				<!-- for docker hub registory 	<image>registry.hub.docker.com/hiashish/spring-boot-jib-image</image> -->
+      				<!-- <image>registry.hub.docker.com/ckabiju/microservice_config_server</image>  -->
+      				
+    				</to>
+  				</configuration>
+			</plugin>
+
 		</plugins>
 	</build>
 

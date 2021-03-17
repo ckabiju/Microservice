@@ -21,6 +21,7 @@ jobs:
       with:
         java-version: 1.8
     - name: Build with Maven
-      run: |-
-      cd MicroserviceConfigServer
-      mvn -B package --file pom.xml
+    - run: |
+        echo "A initial message"
+        cd MicroserviceConfigServer
+        mvn -B package --file pom.xml

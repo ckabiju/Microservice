@@ -17,3 +17,4 @@ WORKDIR /MicroserviceConfigServer
 COPY target/MicroserviceConfigServer-0.0.1-*.jar ./MicroserviceConfigServer.jar
 EXPOSE 8080
 CMD ["java", "-jar", "./MicroserviceConfigServer.jar"]
+

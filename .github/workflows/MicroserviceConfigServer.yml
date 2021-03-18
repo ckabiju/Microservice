@@ -25,3 +25,5 @@ jobs:
         echo "A initial message"
         cd MicroserviceConfigServer
         mvn -B package --file pom.xml
+        cd target
+        ls -l

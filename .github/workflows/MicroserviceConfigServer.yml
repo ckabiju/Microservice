@@ -5,9 +5,12 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    paths:
+      - "MicroserviceConfigServer/**"  
+   # branches: [ master ]
+     
+ # pull_request:
+   # branches: [ master ]
 
 jobs:
   build:
@@ -27,3 +30,5 @@ jobs:
         mvn -B package --file pom.xml
         cd target
         ls -l
+    - name: Create docker MicroserviceConfigServer image
+      run: docker build -t ghcr.io/myimage/MicroserviceConfigServer:latest -t ghcr.io/myimage/MicroserviceConfigServer:$SHA8 ./MicroserviceConfigServer

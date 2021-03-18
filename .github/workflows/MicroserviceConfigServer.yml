@@ -31,5 +31,7 @@ jobs:
         cd target
         ls -l
     - name: Create docker MicroserviceConfigServer image
-      run: docker build -t microserviceconfigserver:$SHA8 ./MicroserviceConfigServer
+      run: |
+        docker build --help
+        docker build -t microserviceconfigserver:$SHA8 ./MicroserviceConfigServer
       #run: docker build -t ghcr.io/myimage/MicroserviceConfigServer:latest -t ghcr.io/myimage/MicroserviceConfigServer:$SHA8 ./MicroserviceConfigServer

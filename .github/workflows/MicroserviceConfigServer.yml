@@ -32,7 +32,8 @@ jobs:
     - name: Create docker MicroserviceConfigServer image
       run: |
         docker --version
-        docker build -t microserviceconfigserver:$CI_PIPELINE_IID ./MicroserviceConfigServer
+        docker build -t microserviceconfigserver:1 ./MicroserviceConfigServer
+    #docker build -t microserviceconfigserver:$CI_PIPELINE_IID ./MicroserviceConfigServer
       #run: docker build -t ghcr.io/myimage/MicroserviceConfigServer:latest -t ghcr.io/myimage/MicroserviceConfigServer:$SHA8 ./MicroserviceConfigServer
     - name: AWS cli install action
   # You may pin to the exact commit or the version.

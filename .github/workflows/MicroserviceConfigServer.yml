@@ -42,6 +42,8 @@ jobs:
     - name: push to ECR
       run: |
         aws --version
-        aws ecr get-login-password | docker login --username AWS --password-stdin 882637506160.dkr.ecr.us-east-1.amazonaws.com
+        docker login -u AWS -p $(aws ecr get-login-password --us-east-1) 882637506160.dkr.ecr.us-east-1.amazonaws.com
         docker push microserviceconfigserver:$CI_PIPELINE_IID
+    #aws ecr get-login-password | docker login --username AWS --password-stdin 882637506160.dkr.ecr.us-east-1.amazonaws.com
+        
     

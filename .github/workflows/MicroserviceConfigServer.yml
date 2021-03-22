@@ -36,9 +36,13 @@ jobs:
                ls -l
       - name: Build docker image and push to ECR
         run: |
-              $(aws ecr get-login --no-include-email --region us-east-1)
+              echo "Software versions... "
               docker --version
+              aws --version
+              $(aws ecr get-login --no-include-email --region us-east-1)
+              
               docker build -t ${{secrets.ECR_REPO_NAME}}/microserviceconfigserver:${{env.RELEASE_VERSION}} ./MicroserviceConfigServer
+              docker push ${{secrets.ECR_REPO_NAME}}/microserviceconfigserver:${{env.RELEASE_VERSION}}
         env:
             AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
             AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}

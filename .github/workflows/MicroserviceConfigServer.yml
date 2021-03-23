@@ -50,7 +50,7 @@ jobs:
               docker --version
               aws --version
               docker build -t ${{secrets.ECR_REPO_NAME}}/microserviceconfigserver:${{env.RELEASE_VERSION}} ./MicroserviceConfigServer
-              docker push ${{secrets.ECR_REPO_NAME}}/microservice_config_server:${{env.RELEASE_VERSION}}
+              docker microserviceconfigserver:${{env.RELEASE_VERSION}} push ${{secrets.ECR_REPO_NAME}}/microservice_config_server:${{env.RELEASE_VERSION}}
         env:
             AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
             AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}

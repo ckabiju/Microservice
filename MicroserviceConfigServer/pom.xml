@@ -84,7 +84,7 @@
     				<to>
       				<!-- for google cloud registory 	<image>gcr.io/my-project/image-built-with-jib</image> -->
       				<image>882637506160.dkr.ecr.us-east-1.amazonaws.com/microservice_config_server</image> 
-      				<credHelper>ecr-login</credHelper> <!-- using docker-credential-ecr-login o configure credential -->
+      				<!--<credHelper>ecr-login</credHelper> --> <!-- using docker-credential-ecr-login o configure credential -->
       				<!-- for docker hub registory 	<image>registry.hub.docker.com/hiashish/spring-boot-jib-image</image> -->
       				<!-- <image>registry.hub.docker.com/ckabiju/microservice_config_server</image>  -->
       				

@@ -43,7 +43,7 @@ jobs:
         run: |
                echo "A initial message"
                cd MicroserviceConfigServer
-               mvn package
+               mvn jib:build
                cd target
                ls -l
         

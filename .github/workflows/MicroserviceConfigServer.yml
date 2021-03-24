@@ -48,6 +48,7 @@ jobs:
       - name: push to ECR using Maven:JIB
         run: |
                 echo "Build and push to ECR"
+                cd MicroserviceConfigServer
                 mvn compile jib:build
         
      # - name: Build docker image and push to ECR

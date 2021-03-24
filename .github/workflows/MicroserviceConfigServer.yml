@@ -39,19 +39,19 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
         
-      - name: Build with Maven
-        run: |
-               echo "A initial message"
-               cd MicroserviceConfigServer
-               mvn jib:build
-               cd target
-               ls -l
+      #- name: Build with Maven
+      #  run: |
+      #    echo "A initial message"
+      #         cd MicroserviceConfigServer
+      #         mvn jib:build
+      #         cd target
+      #         ls -l
         
-     # - name: push to ECR using Maven:JIB
-     #   run: |
-     #           echo "Build and push to ECR"
-     #           cd MicroserviceConfigServer
-     #           mvn compile jib:build
+      - name: push to ECR using Maven:JIB
+        run: |
+                 echo "Build and push to ECR"
+                 cd MicroserviceConfigServer
+                 mvn compile jib:build
         
      # - name: Build docker image and push to ECR
      #   run: |

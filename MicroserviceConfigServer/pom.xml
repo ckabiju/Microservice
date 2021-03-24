@@ -82,7 +82,8 @@
 						<image>882637506160.dkr.ecr.us-east-1.amazonaws.com/microservice_config_server</image>
 						<!-- optional: create a tag based on the git commit id (via the git-commit-id plugin): -->
 						<tags>
-							<tag>${git.commit.id}</tag>
+							<!--<tag>${git.commit.id}</tag>-->
+							<tag>first_build</tag>
 						</tags>
 					</to>
 					<container>

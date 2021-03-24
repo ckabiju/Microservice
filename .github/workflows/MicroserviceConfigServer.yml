@@ -45,13 +45,18 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
         
-      - name: Build docker image and push to ECR
+      - name: push to ECR using Maven:JIB
         run: |
-              echo "Software versions... "
-              docker --version
-              aws --version
-              docker build -t ${{secrets.ECR_REPO_NAME}}/microservice_config_server:${{env.git_hash}} ./MicroserviceConfigServer
-              docker push ${{secrets.ECR_REPO_NAME}}/microservice_config_server:${{env.git_hash}}
+                echo "Build and push to ECR"
+                mvn compile jib:build
+        
+     # - name: Build docker image and push to ECR
+     #   run: |
+     #         echo "Software versions... "
+     #         docker --version
+     #         aws --version
+     #         docker build -t ${{secrets.ECR_REPO_NAME}}/microservice_config_server:${{env.git_hash}} ./MicroserviceConfigServer
+     #         docker push ${{secrets.ECR_REPO_NAME}}/microservice_config_server:${{env.git_hash}}
         env:
             AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
             AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}

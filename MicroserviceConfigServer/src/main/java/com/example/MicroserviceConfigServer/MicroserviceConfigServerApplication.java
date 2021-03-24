@@ -10,7 +10,7 @@ public class MicroserviceConfigServerApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MicroserviceConfigServerApplication.class, args);
-		System.out.println("testing  .....");
+		System.out.println("testing  for second time.....");
 	}
 
 }

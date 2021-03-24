@@ -28,13 +28,7 @@ jobs:
         with:
           java-version: 11
         
-      - name: Build with Maven
-        run: |
-               echo "A initial message"
-               cd MicroserviceConfigServer
-               mvn -B package --file pom.xml
-               cd target
-               ls -l
+     
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -45,11 +39,19 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
         
+      #- name: Build with Maven
+      #  run: |
+      #    echo "A initial message"
+      #         cd MicroserviceConfigServer
+      #         mvn jib:build
+      #         cd target
+      #         ls -l
+        
       - name: push to ECR using Maven:JIB
         run: |
-                echo "Build and push to ECR"
-                cd MicroserviceConfigServer
-                mvn compile jib:build
+                 echo "Build and push to ECR"
+                 cd MicroserviceConfigServer
+                 mvn compile jib:build
         
      # - name: Build docker image and push to ECR
      #   run: |

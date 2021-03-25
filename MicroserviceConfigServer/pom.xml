@@ -69,6 +69,29 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			  <plugin>
+                <groupId>pl.project13.maven</groupId>
+                <artifactId>git-commit-id-plugin</artifactId>
+                <version>4.0.0</version>
+                <executions>
+                    <execution>
+                        <id>get-the-git-infos</id>
+                        <goals>
+                            <goal>revision</goal>
+                        </goals>
+                        <phase>initialize</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <generateGitPropertiesFile>true</generateGitPropertiesFile>
+                    <generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
+                    <includeOnlyProperties>
+                        <includeOnlyProperty>^git.build.(time|version)$</includeOnlyProperty>
+                        <includeOnlyProperty>^git.commit.id.(abbrev|full)$</includeOnlyProperty>
+                    </includeOnlyProperties>
+                    <commitIdGenerationMode>full</commitIdGenerationMode>
+                </configuration>
+            </plugin>
 			<!-- Jib plugin documentation : https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin -->
 			<plugin>
 				<groupId>com.google.cloud.tools</groupId>
@@ -83,7 +106,7 @@
 						<!-- optional: create a tag based on the git commit id (via the git-commit-id plugin): -->
 						<tags>
 							<!--<tag>${git.commit.id}</tag>-->
-							<tag>second_build</tag>
+							<tag>${git.build.number.unique}</tag>
 						</tags>
 					</to>
 					<container>

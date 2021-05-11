@@ -15,6 +15,6 @@ WORKDIR /MicroserviceConfigServer
 
 #COPY --from=maven target/MicroserviceConfigServer-0.0.1-*.jar ./MicroserviceConfigServer.jar
 COPY target/MicroserviceConfigServer-0.0.1-*.jar ./MicroserviceConfigServer.jar
-EXPOSE 8080
+EXPOSE 9090
 CMD ["java", "-jar", "./MicroserviceConfigServer.jar"]
 

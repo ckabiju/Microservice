@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.EmployeeDashBoardService.model.EmployeeInfo;
 
 @FeignClient(name = "EmployeeSearch")
-//@FeignClient(value = "EmployeeSearch", url = "http://EmployeeSearch")
-//@RibbonClient(name = "EmployeeSearch")
 public interface EmployeeServiceProxy {
 
 	@RequestMapping("/employee/find/{id}")
